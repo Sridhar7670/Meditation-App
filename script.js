@@ -3,11 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const okButton = document.getElementById('ok-button');
     const app = document.getElementById('app');
 
-    if (!messageDiv || !okButton || !app) {
-        console.error('Elements with the specified IDs not found');
-        return;
-    }
-
     // Show the message
     messageDiv.style.display = 'block';
 
@@ -28,9 +23,6 @@ const soundIcon = document.querySelector("#sound");
 const audio_1 = document.querySelector("#audio1");
 const audio_2 = document.querySelector("#audio2");
 
-if (!playIcon || !pauseIcon || !select_time || !timer || !display || !muteIcon || !soundIcon || !audio_1 || !audio_2) {
-    console.error('One or more elements not found');
-}
 
 let s;
 let f = -1;
@@ -129,6 +121,12 @@ function Decrement() {
         let sec = s % 60;
         timer.innerHTML = (m <= 9 ? "0" + m : m) + ":" + (sec <= 9 ? "0" + sec : sec);
         s--;
+    }
+    if(s==0){
+        setTimeout(() => {
+            alert("congratulations you meditated.. you are redirected back");
+            location.reload();
+        }, 2000);
     }
 }
 
