@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const okButton = document.getElementById('ok-button');
     const app = document.getElementById('app');
 
+    if (!messageDiv || !okButton || !app) {
+        console.error('Elements with the specified IDs not found');
+        return;
+    }
+
     // Show the message
     messageDiv.style.display = 'block';
 
@@ -23,6 +28,10 @@ const soundIcon = document.querySelector("#sound");
 const audio_1 = document.querySelector("#audio1");
 const audio_2 = document.querySelector("#audio2");
 
+if (!playIcon || !pauseIcon || !select_time || !timer || !display || !muteIcon || !soundIcon || !audio_1 || !audio_2) {
+    console.error('One or more elements not found');
+}
+
 let s;
 let f = -1;
 let currentBackground = ""; // Variable to keep track of the current background
@@ -39,16 +48,19 @@ soundIcon.addEventListener("click", toggleVolume);
 soundIcon.addEventListener('click', MuteAudio);
 
 function SoundAudio() {
+    console.log('SoundAudio triggered');
     audio_1.muted = false;
     audio_2.muted = false;
 }
 
 function MuteAudio() {
+    console.log('MuteAudio triggered');
     audio_1.muted = true;
     audio_2.muted = true;
 }
 
 function playAudio() {
+    console.log('playAudio triggered, currentBackground:', currentBackground);
     if (currentBackground === "sunny") {
         audio_1.play();
     } else if (currentBackground === "rainy") {
@@ -57,6 +69,7 @@ function playAudio() {
 }
 
 function pauseAudio() {
+    console.log('pauseAudio triggered, currentBackground:', currentBackground);
     if (currentBackground === "sunny") {
         audio_1.pause();
     } else if (currentBackground === "rainy") {
@@ -65,6 +78,7 @@ function pauseAudio() {
 }
 
 function toggleIcons() {
+    console.log('toggleIcons triggered');
     if (playIcon.classList.contains('active')) {
         playIcon.classList.remove('active');
         playIcon.classList.add('hide');
@@ -83,6 +97,7 @@ function toggleIcons() {
 }
 
 function toggleVolume() {
+    console.log('toggleVolume triggered');
     if (muteIcon.classList.contains('active')) {
         muteIcon.classList.remove('active');
         muteIcon.classList.add('hide');
@@ -97,6 +112,7 @@ function toggleVolume() {
 }
 
 function backgroundSet(event) {
+    console.log('backgroundSet triggered', event.target);
     if (event.target.tagName === "IMG" && event.target.id === "sunny") {
         app.style.backgroundImage = "url('images/sunny_background.jpg')";
         currentBackground = "sunny";
@@ -118,6 +134,7 @@ function Decrement() {
 
 function AssignValue(event) {
     if (event.target.tagName === "BUTTON") {
+        console.log('AssignValue triggered', event.target.id);
         if (event.target.id === "smaller-mins") {
             timer.innerText = "2:00";
             s = 119;
