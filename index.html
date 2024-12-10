@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="message">
+        <p>Please select a background for a better experience. Use the mute button if you're not interested in sound.</p>
+        <button id="ok-button">OK</button>
+    </div>
+    <h1 id="name">Meditation App</h1>
+    <div id="app" style="display: none;">
+        <div class="time-select">
+            <button id="smaller-mins">2 MINS</button>
+            <button id="medium-mins">5 MINS</button>
+            <button id="long-mins">10 MINS</button>
+        </div>
+        <div class="play">
+            <div class="timer"></div>
+            <i class="fa-solid fa-play active fa-3x" id="play-icon"></i>
+            <i class="fa-solid fa-pause hide fa-3x" id="pause-icon"></i>
+        </div>
+        <div class="display">
+            <i class="fa-solid fa-volume-xmark fa-2x hide" id="mute"></i>
+            <i class="fa-solid fa-volume-high fa-2x active" id="sound"></i>        
+            <img src="images/sunny.png" alt="sunny" width="50px" height="50px" id="sunny">
+            <img src="images/rainy.png" alt="rainy" width="50px" height="50px" id="rainy">
+        </div>
+    </div>
+    <audio src="audio files/sunny.mp3" loop hidden ="audio1" controls></audio>
+    <audio src="audio files/rainny.mp3" loop hidden id="audio2" controls></audio>
+    <script src="script.js" defer></script>
+</body>
+</html>
