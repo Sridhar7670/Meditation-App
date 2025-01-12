@@ -46,7 +46,11 @@
 .hide {
     display: none;
 }
-
+.temp{
+    background-color: white;
+    color:black;
+    
+}
 #smaller-mins, #medium-mins, #long-mins {
     background-color: rgb(145, 130, 130);
     width: 6rem;
