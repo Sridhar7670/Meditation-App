@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageDiv = document.getElementById('message');
     const okButton = document.getElementById('ok-button');
     const app = document.getElementById('app');
-
+    const temps=document.querySelectorAll(".temp")
     // Show the message
     messageDiv.style.display = 'block';
 
@@ -10,8 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
     okButton.addEventListener('click', function() {
         messageDiv.style.display = 'none';
         app.style.display = 'grid'; // Show the app content
+        
+        setTimeout(function() { 
+            temps.forEach(temp => {
+                 temp.style.display = 'none'; 
+                }); 
+            }, 15000);
     });
 });
+
+
 
 const playIcon = document.getElementById('play-icon');
 const pauseIcon = document.getElementById('pause-icon');
@@ -38,6 +46,7 @@ muteIcon.addEventListener("click", toggleVolume);
 muteIcon.addEventListener('click', SoundAudio);
 soundIcon.addEventListener("click", toggleVolume);
 soundIcon.addEventListener('click', MuteAudio);
+
 
 function SoundAudio() {
     console.log('SoundAudio triggered');
@@ -147,3 +156,6 @@ function AssignValue(event) {
         }
     }
 }
+
+
+
